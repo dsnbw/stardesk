@@ -1,0 +1,20 @@
+[Desktop Entry]
+Name=StarDesk
+GenericName=Remote Desktop Client
+Comment=Ultra low-latency cross-platform remote desktop and game streaming
+Exec=stardesk run
+Icon=stardesk
+Terminal=false
+Type=Application
+Categories=Network;RemoteAccess;Utility;
+Keywords=remote;desktop;streaming;game;stardesk;uuyc;
+StartupNotify=true
+Actions=Doctor;Stop;
+
+[Desktop Action Doctor]
+Name=System Diagnostics
+Exec=stardesk doctor
+
+[Desktop Action Stop]
+Name=Stop All Services
+Exec=stardesk stop

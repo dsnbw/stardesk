@@ -1,0 +1,41 @@
+[package]
+name = "stardesk"
+version = "1.5.4"
+edition = "2021"
+authors = ["StarDesk Linux Contributors"]
+description = "Pure Native Linux Port of StarDesk Remote Desktop (Host & Viewer) - No Wine Required"
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/stardesk"
+
+[dependencies]
+anyhow = "1.0"
+thiserror = "1.0"
+clap = { version = "4.5", features = ["derive", "env"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1.38", features = ["full"] }
+tokio-tungstenite = { version = "0.23", features = ["native-tls"] }
+reqwest = { version = "0.12", default-features = false, features = ["json", "default-tls"] }
+hmac = "0.12"
+sha2 = "0.10"
+futures-util = "0.3"
+nix = { version = "0.29", features = ["process", "signal", "user", "fs", "term"] }
+libc = "0.2"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+qrcode = { version = "0.14", default-features = false }
+base64 = "0.22"
+chrono = "0.4"
+url = "2.5"
+
+[features]
+default = ["native"]
+native = []
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true

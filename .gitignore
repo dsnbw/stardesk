@@ -1,0 +1,16 @@
+# Rust build artifacts
+target/
+**/*.rs.bk
+
+# Packaging temporary directories
+build/
+dist/
+
+# Scripts
+push_to_github.py
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.log

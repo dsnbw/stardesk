@@ -1,0 +1,5 @@
+LIBRARY wtsapi32
+EXPORTS
+    WTSEnumerateSessionsW
+    WTSFreeMemory
+    WTSQuerySessionInformationW

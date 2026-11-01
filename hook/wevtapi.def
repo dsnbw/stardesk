@@ -1,0 +1,7 @@
+LIBRARY wevtapi
+EXPORTS
+    EvtOpenPublisherMetadata
+    EvtClose
+    EvtQuery
+    EvtNext
+    EvtRender

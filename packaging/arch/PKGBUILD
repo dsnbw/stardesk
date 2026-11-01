@@ -1,0 +1,22 @@
+# Maintainer: StarDesk Linux Contributors <support@stardesk.com>
+pkgname=stardesk
+pkgver=1.5.4
+pkgrel=1
+pkgdesc="Pure Native Linux implementation of StarDesk Remote Desktop (No Wine)"
+arch=('x86_64')
+url="https://www.stardesk.com"
+license=('MIT')
+depends=('pipewire' 'xdg-desktop-portal')
+optdepends=(
+    'libva-utils: VA-API hardware acceleration status'
+    'nvidia-utils: NVENC hardware encoding'
+)
+provides=('stardesk')
+conflicts=('stardesk-bin')
+
+package() {
+    install -Dm755 "${srcdir}/stardesk" "${pkgdir}/usr/bin/stardesk"
+    install -Dm644 "${srcdir}/packaging/stardesk.desktop" "${pkgdir}/usr/share/applications/stardesk.desktop"
+    install -Dm644 "${srcdir}/assets/stardesk.png" "${pkgdir}/usr/share/icons/hicolor/256x256/apps/stardesk.png"
+    install -Dm644 "${srcdir}/packaging/60-stardesk-uinput.rules" "${pkgdir}/usr/lib/udev/rules.d/60-stardesk-uinput.rules"
+}

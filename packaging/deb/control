@@ -1,0 +1,15 @@
+Package: stardesk
+Version: 1.5.4
+Architecture: amd64
+Maintainer: StarDesk Linux Contributors <support@stardesk.com>
+Installed-Size: 15200
+Depends: libc6 (>= 2.31), libpipewire-0.3-0 | libpipewire-0.3-0t64, libwayland-client0, xdg-desktop-portal
+Recommends: xdg-desktop-portal-gnome | xdg-desktop-portal-kde | xdg-desktop-portal-wlr, libva-utils, nvidia-utils
+Section: net
+Priority: optional
+Homepage: https://www.stardesk.com
+Description: Pure Native Linux implementation of StarDesk Remote Desktop
+ StarDesk is an ultra-low-latency remote desktop and game streaming software.
+ This package provides the 100% native Linux host daemon and viewer,
+ PipeWire desktop capture, /dev/uinput input injection, and hardware acceleration.
+ Zero Wine required.

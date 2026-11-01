@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+
+# Stop running stardesk processes
+pkill -f "stardesk __bridge" || true
+pkill -f "stardesk __capture" || true
+
+exit 0

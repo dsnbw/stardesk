@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -e
+
+# AppRun for StarDesk Native AppImage
+APPDIR="$(dirname "$(readlink -f "$0")")"
+
+export PATH="${APPDIR}/usr/bin:${PATH}"
+export LD_LIBRARY_PATH="${APPDIR}/usr/lib:${LD_LIBRARY_PATH:-}"
+export XDG_DATA_DIRS="${APPDIR}/usr/share:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
+
+# Ensure uinput permissions notice if /dev/uinput is not accessible
+if [ -e /dev/uinput ] && [ ! -w /dev/uinput ]; then
+    echo "[StarDesk AppImage Notice] /dev/uinput is present but not writable by the current user."
+    echo "To enable remote mouse and keyboard injection, run:"
+    echo "  sudo cp \"${APPDIR}/usr/lib/udev/rules.d/60-stardesk-uinput.rules\" /etc/udev/rules.d/"
+    echo "  sudo udevadm control --reload-rules && sudo udevadm trigger"
+    echo "  sudo usermod -aG input \$USER"
+fi
+
+exec "${APPDIR}/usr/bin/stardesk" "$@"
